@@ -38,12 +38,20 @@ button.addEventListener("click", function () {
 
     div.addEventListener("dblclick", function () { //added click event
         if (idNumber % 2 == 0) {
-            console.log("the square before me will disappear");
-            boxdiv.removeChild(this.previousSibling);
+            if (this.nextSibling === null) {
+                alert("no square exists after");
+                return;
+            } else {
+                boxdiv.removeChild(this.previousSibling);
+            }
         } else {
-            console.log("the square after me will disappear");
-            boxdiv.removeChild(this.nextSibling);
+            if (this.previousSibling === null) {
+                alert("no square exists before");
+                return;
+            } else {
+                boxdiv.removeChild(this.nextSibling);
+            }
         }
-
     })
 })
+
